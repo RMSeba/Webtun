@@ -1,14 +1,14 @@
 *{
-    /* border: 2px solid black;       */
+     /* border: 2px solid black;         */
      margin: 0px;
      padding: 0px;
      font-family:sans-serif
 }
 body{
-    /* background: linear-gradient(to top, #f0f0f0, #d8d8d8); */
+    background: linear-gradient(to bottom, black, gray, white);
     margin: 0px;
     padding: 0px;
-    background-color: gray;
+    /* background-color: gray; */
 }
 header{
     
@@ -104,9 +104,9 @@ header{
     justify-content: center;
     flex-wrap: wrap;
     padding-top: 20px;
-    width: 100%;
+    width: 60%;
     /* background: linear-gradient(to top, #f0f0f0, #d8d8d8); */
-    
+   
 }
 
 
@@ -141,7 +141,10 @@ header{
     margin:0px 5px 0px;
     padding: 0;
     transition: transform 0.4s ease;
+    
 }
+
+   
 #carrusel .card:hover{
     transform: scale(1.1);
     
@@ -152,3 +155,48 @@ header{
     border-radius: 20px;
 } */
 
+.filtros {
+   
+    height:400px;
+    width: 60%;
+    background-color:white;
+    border-radius: 5px;
+    margin-top: 20px;
+    color: red;
+    text-align: center;
+}
+
+.estado{
+    background-color: white;
+    color: red;
+    text-align: center;
+    width: 60%;
+    height: 200px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.todos-agregados{
+    display: flex;
+}
+.todos-filtros{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+.titulo-filtro{
+    border-bottom: solid 2px red;
+}
+button{
+    color:ghostwhite;
+    border: solid 2px red;
+    border-radius: 5px;
+    width: 100px;
+    /* height: 20px; */
+    margin-top: 10px;
+    background-color:red;
+    cursor: pointer;
+    /* border: none; */
+}

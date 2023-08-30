@@ -70,6 +70,7 @@ function cargarCards(){
         cardDiv.appendChild(card)
         
     }
+    //cards del carrusel
     cardDiv=document.getElementById('carrusel')
     for(let i=mangas.length-1;i>=0;i--){
         let card=document.createElement("div");
@@ -101,12 +102,13 @@ cargarCards()
 let carrusel=document.getElementById('carrusel')
 let intervalo= null;
 let maxScrollLeft=carrusel.scrollWidth - carrusel.clientWidth;
+
 console.log(maxScrollLeft)
 let step= 0.9;
 function funcCarrusel(){
     intervalo=setInterval(function(){
         carrusel.scrollLeft=carrusel.scrollLeft+step;
-        if (carrusel.scrollLeft >= maxScrollLeft ){
+        if (carrusel.scrollLeft >= maxScrollLeft || carrusel.scrollLeft>=2470){
             console.log("has llegado al final")
             step=step*-1;
         }
