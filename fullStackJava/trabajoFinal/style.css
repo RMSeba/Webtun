@@ -1,0 +1,154 @@
+*{
+    /* border: 2px solid black;       */
+     margin: 0px;
+     padding: 0px;
+     font-family:sans-serif
+}
+body{
+    /* background: linear-gradient(to top, #f0f0f0, #d8d8d8); */
+    margin: 0px;
+    padding: 0px;
+    background-color: gray;
+}
+header{
+    
+    display: flex;
+    /* justify-content: space-around;  */
+    /* background-color: rgb(239, 8, 8); */
+    background:rgba(224, 9, 9, 0.9)  ;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+.menu{
+    display: flex;
+    
+     
+    list-style-type: none;
+    
+    
+
+}
+.menu li{
+    font-size: 20px;
+    margin:0px 20px;
+    
+    color: white;
+}
+.menu li a{
+    color: white;
+    text-decoration: none;
+}
+.logo{
+    /* min-height: 50px; */
+    width: 20%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-left: 20px;
+    
+    z-index: 1;
+}
+.barra-busqueda{
+    /* min-height: 50px; */
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-right:20px;
+}
+.carrusel{
+    min-height: 120px;
+}
+.nav-lista{
+    
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+}
+.barra-busqueda input{
+    margin-top: 28px;
+    width: 200px;
+    height: 25px;
+    border-radius: 20px;
+    border: none;
+
+}
+.titulo{
+    text-align: center;
+    /* background:rgba(252, 14, 14, 0.9)  ; */
+    color:rgba(252, 14, 14, 0.9);
+    font-size: 20px;
+    background-color: white;
+    
+    
+}
+.card{
+   /* min-width: 200px;
+   width: 200px; */
+   text-align: center;
+   margin: 0px 20px 0px;
+   padding: 0;
+}
+.card img{
+    width: 176px;
+    height: 264px;
+    
+    
+    
+    
+}
+#cards-div{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    width: 100%;
+    /* background: linear-gradient(to top, #f0f0f0, #d8d8d8); */
+    
+}
+
+
+.genero-manga{
+    transform: translate(0%,100%);
+    margin: 0;
+    margin-top: 0;
+    background:rgba(245, 7, 7, 0.9)  ;
+    color: white;
+    font-size: 18px;
+}
+.titulo-manga{
+    transform: translate(0%,-105%);
+    margin: 0;
+    margin-top: 0;
+    background:rgba(219, 7, 7, 0.9)  ;
+    color: white;
+    font-size: 18px;
+}
+
+#carrusel{
+    display: flex;
+    overflow-x:scroll;
+    overflow-y: hidden;
+    padding: 0px;
+    margin: 20px 50px 20px;
+    
+    
+}
+
+#carrusel .card{
+    margin:0px 5px 0px;
+    padding: 0;
+    transition: transform 0.4s ease;
+}
+#carrusel .card:hover{
+    transform: scale(1.1);
+    
+    
+}
+
+/* #carrusel::-webkit-scrollbar {
+    border-radius: 20px;
+} */
+
