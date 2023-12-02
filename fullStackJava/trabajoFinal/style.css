@@ -55,6 +55,10 @@ header{
     align-items: flex-start;
     justify-content: flex-end;
     padding-right:20px;
+    
+}
+input{
+    padding-left:10px ;
 }
 .carrusel{
     min-height: 120px;
@@ -211,7 +215,14 @@ button{
     /* border: none; */
 }
 footer{
-    min-height: 100px;
-    background:rgba(224, 9, 9, 0.9)  ;
-    ;
+    min-height:50px;
+    background:rgba(224, 9, 9, 0.9)    ;
+    display: flex;
+    justify-content:center;
+    color :white;
+    
+}
+.p-footer{
+    margin-top: 15px;
+    font-size: 15px;
 }
