@@ -1,8 +1,9 @@
 class Manga{
-    constructor(nombre,imagen,genero){
+    constructor(nombre,imagen,genero,estado){
         this._nombre=nombre;
         this._imagen=imagen;
         this._genero=genero;
+        this._estado=estado;
     }
     set nombre(nombre){
         this._nombre=nombre;
@@ -22,31 +23,37 @@ class Manga{
     get genero(){
         return this._genero;
     }
+    get estado(){
+        return this._estado;
+    }
+    set estado(estado){
+        this._estado=estado;
+    }
 
 }
 
 let mangas=[
-    new Manga("Suicide Island","imagenes/5bf96d8526068.jpg","Seinen"),
-    new Manga("Terraformars","imagenes/5e6ac05876a10.jpg","Seinen"),
-    new Manga("Tales of Demonds<br>and Gods","imagenes/5d9609f30d308.jpg","Fantasia"),
-    new Manga("GTO","imagenes/12486_TMOmanga015019.jpg","Seinen"),
-    new Manga("Tengoku Daimakyou","imagenes/648660f3ee57b.jpg","Ciencia Ficcion"),
-    new Manga("Suicide Island","imagenes/5bf96d8526068.jpg","Seinen"),
-    new Manga("Terraformars","imagenes/5e6ac05876a10.jpg","Seinen"),
-    new Manga("Tales of Demonds<br>and Gods","imagenes/5d9609f30d308.jpg","Fantasia"),
-    new Manga("GTO","imagenes/12486_TMOmanga015019.jpg","Seinen"),
-    new Manga("Tengoku Daimakyou","imagenes/648660f3ee57b.jpg","Ciencia Ficcion"),
-    new Manga("Suicide Island","imagenes/5bf96d8526068.jpg","Seinen"),
-    new Manga("Terraformars","imagenes/5e6ac05876a10.jpg","Seinen"),
-    new Manga("Tales of Demonds<br>and Gods","imagenes/5d9609f30d308.jpg","Fantasia"),
-    new Manga("GTO","imagenes/12486_TMOmanga015019.jpg","Seinen"),
-    new Manga("Tengoku Daimakyou","imagenes/648660f3ee57b.jpg","Ciencia Ficcion"),
-    new Manga("Suicide Island","imagenes/5bf96d8526068.jpg","Seinen"),
-    new Manga("Terraformars","imagenes/5e6ac05876a10.jpg","Seinen"),
-    new Manga("Tales of Demonds<br>and Gods","imagenes/5d9609f30d308.jpg","Fantasia"),
-    new Manga("GTO","imagenes/12486_TMOmanga015019.jpg","Seinen"),
-    new Manga("Tengoku Daimakyou","imagenes/648660f3ee57b.jpg","Ciencia Ficcion"),
-    new Manga("Second Break","imagenes/62b77af450a47.jpg","Deportes")
+    new Manga("Suicide Island","imagenes/5bf96d8526068.jpg","Seinen","Activo"),
+    new Manga("Terraformars","imagenes/5e6ac05876a10.jpg","Isekai","Abandonado"),
+    new Manga("Tales of Demonds<br>and Gods","imagenes/5d9609f30d308.jpg","Fantasia","Activo"),
+    new Manga("GTO","imagenes/12486_TMOmanga015019.jpg","Seinen","Finalizado"),
+    new Manga("Tengoku Daimakyou","imagenes/648660f3ee57b.jpg","Ciencia Ficcion","Finalizado"),
+    new Manga("Suicide Island","imagenes/5bf96d8526068.jpg","Seinen","Activo"),
+    new Manga("Terraformars","imagenes/5e6ac05876a10.jpg","Seinen","Activo"),
+    new Manga("Tales of Demonds<br>and Gods","imagenes/5d9609f30d308.jpg","Fantasia","Abandonado"),
+    new Manga("GTO","imagenes/12486_TMOmanga015019.jpg","Seinen","Finalizado"),
+    new Manga("Tengoku Daimakyou","imagenes/648660f3ee57b.jpg","Ciencia Ficcion","Activo"),
+    new Manga("Suicide Island","imagenes/5bf96d8526068.jpg","Seinen","Finalizado"),
+    new Manga("Terraformars","imagenes/5e6ac05876a10.jpg","Seinen","Activo"),
+    new Manga("Tales of Demonds<br>and Gods","imagenes/5d9609f30d308.jpg","Fantasia","Abandonado"),
+    new Manga("GTO","imagenes/12486_TMOmanga015019.jpg","Seinen","Finalizado"),
+    new Manga("Tengoku Daimakyou","imagenes/648660f3ee57b.jpg","Ciencia Ficcion","Finalizado"),
+    new Manga("Suicide Island","imagenes/5bf96d8526068.jpg","Seinen","Activo"),
+    new Manga("Terraformars","imagenes/5e6ac05876a10.jpg","Seinen","Abandonado"),
+    new Manga("Tales of Demonds<br>and Gods","imagenes/5d9609f30d308.jpg","Fantasia","Abandonado"),
+    new Manga("GTO","imagenes/12486_TMOmanga015019.jpg","Seinen","Finalizado"),
+    new Manga("Tengoku Daimakyou","imagenes/648660f3ee57b.jpg","Ciencia Ficcion","Activo"),
+    new Manga("Second Break","imagenes/62b77af450a47.jpg","Deportes","Abandonado")
 ]
 //********************************CREAR Y CARGAR CARDS********************************** 
 function cargarCards(){
@@ -74,7 +81,7 @@ function cargarCards(){
     cardDiv=document.getElementById('carrusel')
     for(let i=mangas.length-1;i>=0;i--){
         let card=document.createElement("div");
-        card.classList.add("card");
+        card.classList.add("card-carrusel");
 
         let imagen=document.createElement("img");
         imagen.src=mangas[i].imagen;
@@ -96,7 +103,9 @@ function cargarCards(){
 
 }
 
-cargarCards()
+    cargarCards()
+
+    
 
 //*****************************CARRUSEL*************************************** 
 let carrusel=document.getElementById('carrusel')
@@ -133,3 +142,76 @@ carrusel.addEventListener("mouseover",function(){
 carrusel.addEventListener("mouseout",function(){
     funcCarrusel()
 })
+
+
+//******************************Filtros*************************************************************************
+
+function todosFiltros(genero){
+    let titulo=document.getElementById("titulo-todos");
+    titulo.innerHTML=genero
+    let cardseliminar=document.querySelectorAll(".card")
+    for (i=0;i<cardseliminar.length;i++) {
+        cardseliminar[i].remove();
+       
+    }
+    let conteinerCard=document.getElementById("cards-div")
+    for (manga of mangas){
+        let generoMayus=manga.genero.toUpperCase();
+        if (generoMayus.includes(genero.toUpperCase())){
+            let card=document.createElement("div");
+            card.classList.add("card");
+
+            let imagen=document.createElement("img");
+            imagen.src=manga.imagen;
+            let h3=document.createElement("p")
+            h3.classList.add("titulo-manga")
+            h3.innerHTML=manga.nombre;
+            let generos=document.createElement("p")
+            generos.classList.add("genero-manga")
+            generos.innerHTML=manga.genero;
+
+            card.appendChild(generos)
+            card.appendChild(imagen)
+            card.appendChild(h3)
+            conteinerCard.appendChild(card)
+
+    }
+    
+    }
+
+}
+function estado(estado){
+    let titulo=document.getElementById("titulo-todos");
+    titulo.innerHTML=estado
+    let cardseliminar=document.querySelectorAll(".card")
+    for (i=0;i<cardseliminar.length;i++) {
+        cardseliminar[i].remove();
+       
+    }
+    let conteinerCard=document.getElementById("cards-div")
+    for (manga of mangas){
+        let generoMayus=manga.estado.toUpperCase();
+        if (generoMayus.includes(estado.toUpperCase())){
+            let card=document.createElement("div");
+            card.classList.add("card");
+
+            let imagen=document.createElement("img");
+            imagen.src=manga.imagen;
+            let h3=document.createElement("p")
+            h3.classList.add("titulo-manga")
+            h3.innerHTML=manga.nombre;
+            let generos=document.createElement("p")
+            generos.classList.add("genero-manga")
+            generos.innerHTML=manga.genero;
+
+            card.appendChild(generos)
+            card.appendChild(imagen)
+            card.appendChild(h3)
+            conteinerCard.appendChild(card)
+
+    }
+    
+    }
+
+}
+

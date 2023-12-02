@@ -84,7 +84,7 @@ header{
     
     
 }
-.card{
+.card,.card-carrusel{
    /* min-width: 200px;
    width: 200px; */
    text-align: center;
@@ -99,6 +99,15 @@ header{
     
     
 }
+.card-carrusel img{
+    width: 176px;
+    height: 264px;
+}
+    
+    
+    
+    
+    
 #cards-div{
     display: flex;
     justify-content: center;
@@ -137,7 +146,7 @@ header{
     
 }
 
-#carrusel .card{
+#carrusel .card-carrusel{
     margin:0px 5px 0px;
     padding: 0;
     transition: transform 0.4s ease;
@@ -145,7 +154,7 @@ header{
 }
 
    
-#carrusel .card:hover{
+#carrusel .card-carrusel:hover{
     transform: scale(1.1);
     
     
@@ -178,6 +187,7 @@ header{
 
 .todos-agregados{
     display: flex;
+    min-height: 700px;
 }
 .todos-filtros{
     width: 40%;
@@ -199,4 +209,9 @@ button{
     background-color:red;
     cursor: pointer;
     /* border: none; */
+}
+footer{
+    min-height: 100px;
+    background:rgba(224, 9, 9, 0.9)  ;
+    ;
 }
